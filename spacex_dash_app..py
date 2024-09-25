@@ -24,7 +24,7 @@ dd_options=options1 +options2
 
 
 # Create an app layout
-app.layout = html.Div(children=[html.H1('SpaceX Launch Records Dashboard 2',
+app.layout = html.Div(children=[html.H1('SpaceX Launch Records Dashboard',
                                         style={'textAlign': 'center', 'color': '#503D36',
                                                'font-size': 40}),
                                 # TASK 1: Add a dropdown list to enable Launch Site selection
@@ -62,13 +62,13 @@ def get_pie_chart(entered_site):
     if entered_site == 'ALL':
         fig = px.pie(spacex_df, values='class', 
         names='Launch Site', 
-        title='title')        
+        title='All Site Success Chart')        
         return fig
     else:
         # return the outcomes piechart for a selected site
         fig = px.pie(spacex_df[spacex_df['Launch Site']==entered_site], values='Flag', 
         names='class', 
-        title='title')        
+        title='Selected Site Success Chart')        
         return fig
 # TASK 4:
 # Add a callback function for `site-dropdown` and `payload-slider` as inputs, `success-payload-scatter-chart` as output
